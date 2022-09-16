@@ -43,6 +43,14 @@ public class HanoiTower {
         return this.tower_disks[tower_id].get(top_disk_index);
     }
 
+    public int get_disks() {
+        int disks_amount = 0;
+        for (int tower_id = 0; tower_id < 3; tower_id++) {
+            disks_amount += this.tower_disks[tower_id].size();
+        }
+        return disks_amount;
+    }
+
     private boolean valid_tower_id(byte tower_id) {
         return 0 <= tower_id && tower_id < this.tower_disks.length;
     }
