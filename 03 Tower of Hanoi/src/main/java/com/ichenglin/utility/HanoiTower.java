@@ -23,8 +23,8 @@ public class HanoiTower {
     }
 
     public void move_disk(int disk_from, int disk_to) {
-        if (!this.valid_tower_id((byte) disk_from)) throw new RuntimeException("tower id out of bounds"); // out of bounds
-        if (!this.valid_tower_id((byte) disk_to)) throw new RuntimeException("tower id out of bounds"); // out of bounds
+        if (!this.valid_tower_id((byte) disk_from)) throw new IllegalArgumentException("tower id out of bounds"); // out of bounds
+        if (!this.valid_tower_id((byte) disk_to)) throw new IllegalArgumentException("tower id out of bounds"); // out of bounds
         if (this.get_top(disk_from) == null) throw new RuntimeException("illegal disk movement"); // nothing to move
         if (this.get_top(disk_to) != null && this.get_top(disk_from).get_id() > this.get_top(disk_to).get_id()) throw new RuntimeException("illegal disk movement"); // invalid move
 
@@ -35,13 +35,13 @@ public class HanoiTower {
     }
 
     public int get_height(int tower_id) {
-        if (!this.valid_tower_id((byte) tower_id)) throw new RuntimeException("tower id out of bounds"); // out of bounds
+        if (!this.valid_tower_id((byte) tower_id)) throw new IllegalArgumentException("tower id out of bounds"); // out of bounds
 
         return this.tower_disks[tower_id].size();
     }
 
     public HanoiDisk get_top(int tower_id) {
-        if (!this.valid_tower_id((byte) tower_id)) throw new RuntimeException("tower id out of bounds"); // out of bounds
+        if (!this.valid_tower_id((byte) tower_id)) throw new IllegalArgumentException("tower id out of bounds"); // out of bounds
         if (this.get_height(tower_id) <= 0) return null; // nothing in tower
 
         int top_disk_index = this.tower_disks[tower_id].size() - 1;
