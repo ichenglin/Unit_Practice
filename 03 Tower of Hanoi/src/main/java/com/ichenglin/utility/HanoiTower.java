@@ -1,16 +1,18 @@
 package com.ichenglin.utility;
 
+import com.ichenglin.data.HanoiConstants;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class HanoiTower {
 
-    private final ArrayList<HanoiDisk>[] tower_disks = new ArrayList[3];
+    private final ArrayList<HanoiDisk>[] tower_disks = new ArrayList[HanoiConstants.HANOI_TOWER_TOWERS];
     private int disk_moves;
 
     public HanoiTower(byte[][] disks_placement, int initial_moves) {
         // double for-loop looks like dogshit, might need to enhance this constructor later on
-        for (int tower_id = 0; tower_id < 3; tower_id++) {
+        for (int tower_id = 0; tower_id < HanoiConstants.HANOI_TOWER_TOWERS; tower_id++) {
             this.tower_disks[tower_id] = new ArrayList<HanoiDisk>();
             for (int placement_id = 0; placement_id < disks_placement[tower_id].length; placement_id++) {
                 byte disk_id = disks_placement[tower_id][placement_id];
@@ -48,7 +50,7 @@ public class HanoiTower {
 
     public int get_disks() {
         int disks_amount = 0;
-        for (int tower_id = 0; tower_id < 3; tower_id++) {
+        for (int tower_id = 0; tower_id < HanoiConstants.HANOI_TOWER_TOWERS; tower_id++) {
             disks_amount += this.tower_disks[tower_id].size();
         }
         return disks_amount;
