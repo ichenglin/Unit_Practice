@@ -1,4 +1,4 @@
-package com.ichenglin.utility;
+package com.ichenglin.objects;
 
 public class HanoiDisk {
 

@@ -1,9 +1,11 @@
-package com.ichenglin.utility;
+package com.ichenglin.objects;
 
 import com.ichenglin.data.HanoiConstants;
+import com.ichenglin.objects.HanoiDisk;
+import com.ichenglin.utility.Gradient;
+import com.ichenglin.utility.Graphics;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class HanoiTower {
 
@@ -64,13 +66,37 @@ public class HanoiTower {
         return 0 <= tower_id && tower_id < this.tower_disks.length;
     }
 
+    private String get_disk_block(byte tower_id, int disk_height) {
+        int disks_amount = this.get_disks();
+        int disks_width = (disks_amount * 2) + 1;
+        if (this.tower_disks[tower_id].size() <= disk_height) {
+            // no disk here
+            return " ".repeat((int) Math.floor(disks_width / 2.0)) + "|" + " ".repeat((int) Math.floor(disks_width / 2.0));
+        }
+        HanoiDisk loop_disk = this.tower_disks[tower_id].get(disk_height);
+        int disk_id = loop_disk.get_id();
+        int disk_margin = disks_amount - loop_disk.get_id();
+        Gradient gradient_generator = new Gradient(HanoiConstants.HANOI_DISK_GRADIENT);
+        byte[] disk_color = gradient_generator.get_rgb((float) disk_id / disks_amount);
+        String disk_label =
+                new Graphics().foreground((byte) 255, (byte) 255, (byte) 255).background(disk_color[0], disk_color[1], disk_color[2]) +
+                "[" + "_".repeat(disk_id - 1) + disk_id + "_".repeat(disk_id - String.valueOf(disk_id).length()) + "]" +
+                new Graphics().reset();
+        return " ".repeat(disk_margin) + disk_label + " ".repeat(disk_margin);
+    }
+
     @Override
     public String toString() {
-        StringBuilder print_result = new StringBuilder();
-        for (int tower_id = 0; tower_id < this.tower_disks.length; tower_id++) {
-            print_result.append("(" + Arrays.toString(this.tower_disks[tower_id].toArray()) + ") ");
+        StringBuilder tower_image = new StringBuilder();
+        int disks_amount = this.get_disks();
+        int disks_width = (disks_amount * 2) + 1;
+        for (int disk_height = disks_amount - 1; disk_height >= 0; disk_height--) {
+            for (int tower_id = 0; tower_id < HanoiConstants.HANOI_TOWER_TOWERS; tower_id++) {
+                tower_image.append(this.get_disk_block((byte) tower_id, disk_height));
+            }
+            tower_image.append("\n");
         }
-        return "HanoiTower " + print_result;
+        return "HanoiTower\n" + tower_image;
     }
 
 }
