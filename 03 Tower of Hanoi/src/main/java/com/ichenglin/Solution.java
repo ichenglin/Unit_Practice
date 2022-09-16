@@ -1,5 +1,8 @@
 package com.ichenglin;
 
+import com.ichenglin.utility.HanoiDisk;
+import com.ichenglin.utility.HanoiTower;
+
 public class Solution {
 
     // test place
