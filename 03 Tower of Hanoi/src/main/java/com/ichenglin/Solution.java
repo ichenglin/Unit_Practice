@@ -1,40 +1,21 @@
 package com.ichenglin;
 
-import com.ichenglin.utility.Gradient;
-import com.ichenglin.utility.Graphics;
 import com.ichenglin.objects.HanoiDisk;
 import com.ichenglin.objects.HanoiTower;
 
-import java.util.Arrays;
+import java.util.concurrent.TimeUnit;
 
 public class Solution {
 
     // test place
     public static void main(String[] args) {
-        /*byte[][] colors = new byte[][] {
-                {(byte) 128, (byte) 0, (byte) 0},
-                {(byte) 255, (byte) 255, (byte) 0},
-                {(byte) 0, (byte) 255, (byte) 0},
-                {(byte) 0, (byte) 0, (byte) 255}
-        };
-        Gradient gradient_generator = new Gradient(colors);
-        for (float i = 0; i <= 1; i += 0.09) {
-            byte[] rgb = gradient_generator.get_rgb(i);
-            String color = new Graphics().background(rgb[0], rgb[1], rgb[2]).toString();
-            System.out.println(color + i + " " + Arrays.toString(rgb) + new Graphics());
-        }*/
         HanoiTower board = new HanoiTower(new byte[][]{{10, 9, 8, 7, 6, 5, 4, 3, 2, 1}, {}, {}}, 0);
         int solution_moves = (int) (Math.pow(2, board.get_disks()) - 1);
+        System.out.println(board);
         for (int move_index = 0; move_index < solution_moves; move_index++) {
             hanoi_tower_solution(board);
+            System.out.println(board);
         }
-        /*System.out.println(board);
-        board.move_disk(0, 1);
-        System.out.println(board);
-        board.move_disk(0, 2);
-        System.out.println(board);
-        board.move_disk(1, 0);
-        System.out.println(board);*/
     }
 
     // involved: (Unit 2 Objects) (Unit 3 If-Else Booleans)
@@ -70,7 +51,6 @@ public class Solution {
             case 1 -> disk_movement_legal(board, 0, 1);
             case 2 -> disk_movement_legal(board, 1, 2);
         }
-        System.out.println(board);
     }
 
     // involved: (Unit 2 Objects) (Unit 3 If-Else Booleans)

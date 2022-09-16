@@ -1,7 +1,6 @@
 package com.ichenglin.objects;
 
 import com.ichenglin.data.HanoiConstants;
-import com.ichenglin.objects.HanoiDisk;
 import com.ichenglin.utility.Gradient;
 import com.ichenglin.utility.Graphics;
 
@@ -80,7 +79,7 @@ public class HanoiTower {
         byte[] disk_color = gradient_generator.get_rgb((float) disk_id / disks_amount);
         String disk_label =
                 new Graphics().foreground((byte) 255, (byte) 255, (byte) 255).background(disk_color[0], disk_color[1], disk_color[2]) +
-                "[" + "_".repeat(disk_id - 1) + disk_id + "_".repeat(disk_id - String.valueOf(disk_id).length()) + "]" +
+                "[" + "-".repeat(disk_id - 1) + disk_id + "-".repeat(disk_id - String.valueOf(disk_id).length()) + "]" +
                 new Graphics().reset();
         return " ".repeat(disk_margin) + disk_label + " ".repeat(disk_margin);
     }
@@ -89,14 +88,13 @@ public class HanoiTower {
     public String toString() {
         StringBuilder tower_image = new StringBuilder();
         int disks_amount = this.get_disks();
-        int disks_width = (disks_amount * 2) + 1;
         for (int disk_height = disks_amount - 1; disk_height >= 0; disk_height--) {
             for (int tower_id = 0; tower_id < HanoiConstants.HANOI_TOWER_TOWERS; tower_id++) {
                 tower_image.append(this.get_disk_block((byte) tower_id, disk_height));
             }
             tower_image.append("\n");
         }
-        return "HanoiTower\n" + tower_image;
+        return "Tower of Hanoi (Moves: " + this.disk_moves + ")\n" + tower_image;
     }
 
 }
