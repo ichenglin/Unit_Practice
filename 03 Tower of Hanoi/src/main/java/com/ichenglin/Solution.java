@@ -33,6 +33,7 @@ public class Solution {
     public static void disk_movement_legal(HanoiTower board, int tower_a, int tower_b) {
         HanoiDisk tower_a_disk = board.get_top(tower_a); // top disk, possibly null
         HanoiDisk tower_b_disk = board.get_top(tower_b); // top disk, possibly null
+        // the ternary operator here could be replaced with several if-else statements
         int tower_a_weight = tower_a_disk != null ? tower_a_disk.get_id() : Integer.MAX_VALUE; // weight MAX if null
         int tower_b_weight = tower_b_disk != null ? tower_b_disk.get_id() : Integer.MAX_VALUE; // weight MAX if null
         if (tower_a_weight < tower_b_weight) {
@@ -44,6 +45,7 @@ public class Solution {
 
     // involved: (Unit 2 Objects) (Unit 3 If-Else Booleans)
     public static void hanoi_tower_solution(HanoiTower board) {
+        // the switch statement here could be replaced with several if-else statements
         switch (board.get_moves() % 3) {
             case 0 -> disk_movement_legal(board, 0, 2);
             case 1 -> disk_movement_legal(board, 0, 1);
