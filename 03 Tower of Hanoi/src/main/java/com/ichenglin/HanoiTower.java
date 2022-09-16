@@ -6,8 +6,9 @@ import java.util.Arrays;
 public class HanoiTower {
 
     private final ArrayList<HanoiDisk>[] tower_disks = new ArrayList[3];
+    private int disk_moves;
 
-    public HanoiTower(byte[][] disks_placement) {
+    public HanoiTower(byte[][] disks_placement, int initial_moves) {
         // double for-loop looks like dogshit, might need to enhance this constructor later on
         for (int tower_id = 0; tower_id < 3; tower_id++) {
             this.tower_disks[tower_id] = new ArrayList<HanoiDisk>();
@@ -16,6 +17,7 @@ public class HanoiTower {
                 this.tower_disks[tower_id].add(new HanoiDisk(disk_id));
             }
         }
+        this.disk_moves = initial_moves;
     }
 
     public void move_disk(int disk_from, int disk_to) {
@@ -27,6 +29,7 @@ public class HanoiTower {
         int disk_from_top_index = this.tower_disks[disk_from].size() - 1;
         HanoiDisk transfer_disk = this.tower_disks[disk_from].remove(disk_from_top_index);
         this.tower_disks[disk_to].add(transfer_disk);
+        this.disk_moves++;
     }
 
     public int get_height(int tower_id) {
@@ -49,6 +52,10 @@ public class HanoiTower {
             disks_amount += this.tower_disks[tower_id].size();
         }
         return disks_amount;
+    }
+
+    public int get_moves() {
+        return this.disk_moves;
     }
 
     private boolean valid_tower_id(byte tower_id) {

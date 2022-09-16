@@ -16,7 +16,7 @@ class SolutionTest {
         @Test
         @DisplayName("Valid Test Cases with Movable Disks")
         public void valid_movable() {
-            HanoiTower board = new HanoiTower(new byte[][]{{5, 4, 3, 2, 1}, {}, {}});
+            HanoiTower board = new HanoiTower(new byte[][]{{5, 4, 3, 2, 1}, {}, {}}, 0);
             assertTrue(Solution.disk_movable(board, 0, 1));
             assertFalse(Solution.disk_movable(board, 1, 0));
         }
