@@ -27,6 +27,10 @@ public class Graphics {
         return this;
     }
 
+    public static float relative_luminance(byte red, byte green, byte blue) {
+        return (float) ((0.2126 * Byte.toUnsignedInt(red) + 0.7152 * Byte.toUnsignedInt(green) + 0.0722 * Byte.toUnsignedInt(blue)) / 255);
+    }
+
     @Override
     public String toString() {
         StringBuilder style_string = new StringBuilder();
