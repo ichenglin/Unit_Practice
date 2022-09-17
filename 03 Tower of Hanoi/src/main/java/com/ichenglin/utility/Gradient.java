@@ -1,7 +1,5 @@
 package com.ichenglin.utility;
 
-import java.util.Arrays;
-
 public class Gradient {
 
     byte[][] gradient_anchors;

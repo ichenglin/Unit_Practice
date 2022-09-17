@@ -1,7 +1,5 @@
 package com.ichenglin.data;
 
-import com.ichenglin.utility.Graphics;
-
 public final class HanoiConstants {
 
     private HanoiConstants() {};
@@ -11,7 +9,8 @@ public final class HanoiConstants {
             {(byte) 255, (byte) 0, (byte) 0},
             {(byte) 255, (byte) 255, (byte) 0},
             {(byte) 0, (byte) 255, (byte) 0},
-            {(byte) 0, (byte) 0, (byte) 255}
+            {(byte) 0, (byte) 0, (byte) 255},
+            {(byte) 127, (byte) 0, (byte) 255}
     };
 
 }

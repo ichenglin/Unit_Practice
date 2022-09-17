@@ -3,8 +3,6 @@ package com.ichenglin;
 import com.ichenglin.objects.HanoiDisk;
 import com.ichenglin.objects.HanoiTower;
 
-import java.util.concurrent.TimeUnit;
-
 public class Solution {
 
     // test place
