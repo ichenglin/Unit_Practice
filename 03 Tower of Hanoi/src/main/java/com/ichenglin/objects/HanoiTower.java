@@ -76,7 +76,7 @@ public class HanoiTower {
         int disk_id = loop_disk.get_id();
         int disk_margin = disks_amount - loop_disk.get_id();
         Gradient gradient_generator = new Gradient(HanoiConstants.HANOI_DISK_GRADIENT);
-        byte[] disk_color = gradient_generator.get_rgb((float) disk_id / disks_amount);
+        byte[] disk_color = gradient_generator.get_rgb((float) (disk_id - 1) / (disks_amount - 1));
         String disk_label =
                 new Graphics().foreground((byte) 255, (byte) 255, (byte) 255).background(disk_color[0], disk_color[1], disk_color[2]) +
                 "[" + "-".repeat(disk_id - 1) + disk_id + "-".repeat(disk_id - String.valueOf(disk_id).length()) + "]" +
