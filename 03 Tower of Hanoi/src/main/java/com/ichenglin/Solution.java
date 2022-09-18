@@ -2,18 +2,16 @@ package com.ichenglin;
 
 import com.ichenglin.objects.HanoiDisk;
 import com.ichenglin.objects.HanoiTower;
+import com.ichenglin.objects.hanoiTower_userControl;
+
+import java.util.Scanner;
 
 public class Solution {
 
     // test place
     public static void main(String[] args) {
-        HanoiTower board = new HanoiTower(new byte[][]{{10, 9, 8, 7, 6, 5, 4, 3, 2, 1}, {}, {}}, 0);
-        int solution_moves = (int) (Math.pow(2, board.get_disks()) - 1);
-        System.out.println(board);
-        for (int move_index = 0; move_index < solution_moves; move_index++) {
-            hanoi_tower_solution(board);
-            System.out.println(board);
-        }
+        hanoiTower_userControl board = new hanoiTower_userControl(new byte[][]{{3, 2, 1}, {}, {}}, 0);
+        hanoi_tower_controller_loop(board);
     }
 
     // involved: (Unit 2 Objects) (Unit 3 If-Else Booleans)
@@ -51,8 +49,55 @@ public class Solution {
         }
     }
 
-    // involved: (Unit 2 Objects) (Unit 3 If-Else Booleans)
-    public static void hanoi_tower_controller(HanoiTower board) {}
+    public static void hanoi_tower_controller_loop(hanoiTower_userControl board){
+        while(true){
+            System.out.println(board);
+            if(board.get_height(2) == board.get_disks()) {
+                board.setSelecting(false);
+                System.out.println(board);
+                break;
+            }
+            hanoi_tower_controller(board);
+        }
+        System.out.println("YOU WINNNNNNNNNN!!!!!!");
+    }
 
-
+    // involved: (Unit 2 Objects) (Unit 3 If-Else Booleans) (IDK what unit but: Scanner)
+    public static void hanoi_tower_controller(hanoiTower_userControl board) {
+        Scanner scanner = new Scanner(System.in);
+        String system_in;
+        system_in = scanner.nextLine();
+        if(system_in.length()>1){
+            system_in.substring(0,1);
+        }
+        if(system_in.equals(" ")){
+            board.setSelecting();
+        }
+        else {
+            int tower_selected = board.getSelectingTower();
+            if (!board.getSelectingState()) {
+                if (system_in.equals("a")  && tower_selected != 0) {
+                    board.select_previous();
+                } else if (system_in.equals("d") && tower_selected != 2) {
+                    board.select_next();
+                }
+            } else {
+                if (system_in.equals("a")) {
+                    if(disk_movable(board, tower_selected, tower_selected - 1) && tower_selected != 0) {
+                        board.move_disk(tower_selected, tower_selected - 1);
+                    }
+                    else if(disk_movable(board, tower_selected, tower_selected - 2) && tower_selected == 2){
+                        board.move_disk(tower_selected, 0);
+                    }
+                } else if (system_in.equals("d") ) {
+                    if(disk_movable(board, tower_selected, tower_selected +1) && tower_selected != 2) {
+                        board.move_disk(tower_selected, tower_selected + 1);
+                    }
+                    else if(disk_movable(board, tower_selected, tower_selected + 2) && tower_selected == 0 ){
+                        board.move_disk(tower_selected, 2);
+                    }
+                }
+            }
+        }
+    }
 }

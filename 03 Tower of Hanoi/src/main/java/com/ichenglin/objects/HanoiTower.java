@@ -1,18 +1,18 @@
 package com.ichenglin.objects;
 
+
 import com.ichenglin.data.HanoiConstants;
 import com.ichenglin.utility.Gradient;
 import com.ichenglin.utility.Graphics;
-
 import java.util.ArrayList;
 
 public class HanoiTower {
 
-    private final ArrayList<HanoiDisk>[] tower_disks = new ArrayList[HanoiConstants.HANOI_TOWER_TOWERS];
-    private int disk_moves;
+    protected final ArrayList<HanoiDisk>[] tower_disks = new ArrayList[HanoiConstants.HANOI_TOWER_TOWERS];
+    protected int disk_moves;
 
     public HanoiTower(byte[][] disks_placement, int initial_moves) {
-        // double for-loop looks like dogshit, might need to enhance this constructor later on
+        // double for-loop looks like dog shit, might need to enhance this constructor later on
         for (int tower_id = 0; tower_id < HanoiConstants.HANOI_TOWER_TOWERS; tower_id++) {
             this.tower_disks[tower_id] = new ArrayList<HanoiDisk>();
             for (int placement_id = 0; placement_id < disks_placement[tower_id].length; placement_id++) {
@@ -57,15 +57,17 @@ public class HanoiTower {
         return disks_amount;
     }
 
+
+
     public int get_moves() {
         return this.disk_moves;
     }
 
-    private boolean valid_tower_id(byte tower_id) {
+    protected boolean valid_tower_id(byte tower_id) {
         return 0 <= tower_id && tower_id < this.tower_disks.length;
     }
 
-    private String get_disk_block(byte tower_id, int disk_height) {
+    protected String get_disk_block(byte tower_id, int disk_height) {
         int disks_amount = this.get_disks();
         int disks_width = (disks_amount * 2) + 1;
         if (this.tower_disks[tower_id].size() <= disk_height) {
@@ -84,6 +86,8 @@ public class HanoiTower {
                 new Graphics().reset();
         return " ".repeat(disk_margin) + disk_label + " ".repeat(disk_margin);
     }
+
+
 
     @Override
     public String toString() {

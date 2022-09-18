@@ -9,8 +9,10 @@ public final class HanoiConstants {
             {(byte) 255, (byte) 0, (byte) 0},
             {(byte) 255, (byte) 255, (byte) 0},
             {(byte) 0, (byte) 255, (byte) 0},
-            {(byte) 0, (byte) 0, (byte) 255},
-            {(byte) 127, (byte) 0, (byte) 255}
+            {(byte) 0, (byte) 0, (byte) 255}
     };
+
+    public static final byte[] HANOI_DISK_BLOCK_SELECTED_BACKGROUND = new byte[]{(byte) 255, (byte)255, (byte)255};
+    public static final byte[] HANOI_DISK_BLOCK_SELECTED_FOREGROUND = new byte[]{(byte) 0, (byte)0, (byte)0};
 
 }
