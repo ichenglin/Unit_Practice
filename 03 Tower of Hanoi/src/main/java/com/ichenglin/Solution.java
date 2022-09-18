@@ -2,7 +2,7 @@ package com.ichenglin;
 
 import com.ichenglin.objects.HanoiDisk;
 import com.ichenglin.objects.HanoiTower;
-import com.ichenglin.objects.hanoiTower_userControl;
+import com.ichenglin.objects.HanoiTowerUserControl;
 
 import java.util.Scanner;
 
@@ -10,7 +10,7 @@ public class Solution {
 
     // test place
     public static void main(String[] args) {
-        hanoiTower_userControl board = new hanoiTower_userControl(new byte[][]{{3, 2, 1}, {}, {}}, 0);
+        HanoiTowerUserControl board = new HanoiTowerUserControl(new byte[][]{{3, 2, 1}, {}, {}}, 0);
         hanoi_tower_controller_loop(board);
     }
 
@@ -49,7 +49,7 @@ public class Solution {
         }
     }
 
-    public static void hanoi_tower_controller_loop(hanoiTower_userControl board){
+    public static void hanoi_tower_controller_loop(HanoiTowerUserControl board){
         while(true){
             System.out.println(board);
             if(board.get_height(2) == board.get_disks()) {
@@ -63,7 +63,7 @@ public class Solution {
     }
 
     // involved: (Unit 2 Objects) (Unit 3 If-Else Booleans) (IDK what unit but: Scanner)
-    public static void hanoi_tower_controller(hanoiTower_userControl board) {
+    public static void hanoi_tower_controller(HanoiTowerUserControl board) {
         Scanner scanner = new Scanner(System.in);
         String system_in;
         system_in = scanner.nextLine();

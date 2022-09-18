@@ -7,10 +7,10 @@ import com.ichenglin.utility.Graphics;
 import static com.ichenglin.data.HanoiConstants.HANOI_DISK_BLOCK_SELECTED_BACKGROUND;
 import static com.ichenglin.data.HanoiConstants.HANOI_DISK_BLOCK_SELECTED_FOREGROUND;
 
-public class hanoiTower_userControl extends HanoiTower {
+public class HanoiTowerUserControl extends HanoiTower {
     private byte selecting_tower = 0;
     private boolean is_selecting = false;
-    public hanoiTower_userControl(byte[][] disks_placement, int initial_moves) {
+    public HanoiTowerUserControl(byte[][] disks_placement, int initial_moves) {
         super(disks_placement, initial_moves);
     }
 
