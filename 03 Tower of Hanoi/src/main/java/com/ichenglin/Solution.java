@@ -11,7 +11,7 @@ public class Solution {
     private static int tower_selected = -1;
     private static int tower_pointer = 1;
 
-    // test place
+    // test place, should be removed in production
     public static void main(String[] args) {
         HanoiTower board = new HanoiTower(new byte[][]{{10, 9, 8, 7, 6, 5, 4, 3, 2, 1}, {}, {}}, 0);
         /*int solution_moves = (int) (Math.pow(2, board.get_disks()) - 1);
@@ -24,18 +24,29 @@ public class Solution {
         while (true) hanoi_tower_controller(board);
     }
 
-    // involved: (Unit 2 Objects) (Unit 3 If-Else Booleans)
+    /**
+     * Check whether a disk could be legally moved from a tower to another (Unit 2 & Unit 3)
+     * @param board The Hanoi Tower object
+     * @param disk_from The original (source) tower ID of the disk
+     * @param disk_to The new (destination) tower ID of the disk
+     * @return Whether a disk could be legally moved from a tower to another
+     */
     public static boolean disk_movable(HanoiTower board, int disk_from, int disk_to) {
         if (board.get_top(disk_from) == null) return false; // nothing to move
         if (board.get_top(disk_to) != null && board.get_top(disk_from).get_id() > board.get_top(disk_to).get_id()) return false; // invalid move
         return true;
     }
 
-    // involved: (Unit 2 Objects & Math Class) (Unit 3 If-Else Booleans)
     public static int disk_movement_cost(HanoiTower board, int disk_from, int disk_to) {
         return 0;
     }
 
+    /**
+     * Legally moves a disk between two towers (Unit 2 & Unit 3)
+     * @param board The Hanoi Tower object
+     * @param tower_a The first tower, could be either the source or destination of the disk
+     * @param tower_b The second tower, could be either the source or destination of the disk
+     */
     public static void disk_movement_legal(HanoiTower board, int tower_a, int tower_b) {
         HanoiDisk tower_a_disk = board.get_top(tower_a); // top disk, possibly null
         HanoiDisk tower_b_disk = board.get_top(tower_b); // top disk, possibly null
@@ -49,7 +60,10 @@ public class Solution {
         }
     }
 
-    // involved: (Unit 2 Objects) (Unit 3 If-Else Booleans)
+    /**
+     * Solves the Tower of Hanoi, one disk movement per execution
+     * @param board The Hanoi Tower object
+     */
     public static void hanoi_tower_solution(HanoiTower board) {
         // the switch statement here could be replaced with several if-else statements
         switch (board.get_moves() % 3) {
@@ -59,7 +73,10 @@ public class Solution {
         }
     }
 
-    // involved: (Unit 2 Objects) (Unit 3 If-Else Booleans)
+    /**
+     * Controls the Tower of Hanoi with Scanner class, one disk movement per execution
+     * @param board The Hanoi Tower object
+     */
     public static void hanoi_tower_controller(HanoiTower board) {
         // scanner used for input
         Scanner scanner = new Scanner(System.in);

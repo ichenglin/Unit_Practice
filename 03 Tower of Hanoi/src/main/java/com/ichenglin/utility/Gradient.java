@@ -8,6 +8,11 @@ public class Gradient {
         this.gradient_anchors = gradient_anchors;
     }
 
+    /**
+     * Calculates the RGB color of a point on the linear gradient
+     * @param gradient_progress The point (progress, between 0.0~1.0) on the linear gradient
+     * @return The RGB color of a point on the linear gradient
+     */
     public byte[] get_rgb(float gradient_progress) {
         if (gradient_progress >= 1) return this.gradient_anchors[this.gradient_anchors.length - 1];
         int gradient_stage = (int) Math.floor(gradient_progress * (this.gradient_anchors.length - 1));

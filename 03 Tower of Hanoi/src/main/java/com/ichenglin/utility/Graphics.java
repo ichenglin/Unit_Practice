@@ -30,26 +30,55 @@ public class Graphics {
         this.graphics_style = graphics_style;
     }
 
+    /**
+     * Applies foreground text color to the following string
+     * @param red The red value of the foreground RGB color
+     * @param green The green value of the foreground RGB color
+     * @param blue The blue value of the foreground RGB color
+     * @return The chainable Graphics object
+     */
     public Graphics foreground(byte red, byte green, byte blue) {
         this.graphics_style[0] = "\033[38;2;" + Byte.toUnsignedInt(red) + ";" + Byte.toUnsignedInt(green) + ";" + Byte.toUnsignedInt(blue) + "m";
         return this;
     }
 
+    /**
+     * Applies background text color to the following string
+     * @param red The red value of the background RGB color
+     * @param green The green value of the background RGB color
+     * @param blue The blue value of the background RGB color
+     * @return The chainable Graphics object
+     */
     public Graphics background(byte red, byte green, byte blue) {
         this.graphics_style[1] = "\033[48;2;" + Byte.toUnsignedInt(red) + ";" + Byte.toUnsignedInt(green) + ";" + Byte.toUnsignedInt(blue) + "m";
         return this;
     }
 
+    /**
+     * Applies bold styling to the following string
+     * @return The chainable Graphics object
+     */
     public Graphics bold() {
         this.graphics_style[2] = "\033[1m";
         return this;
     }
 
+    /**
+     * Reset the styling of the following string
+     * @return The chainable Graphics object
+     */
     public Graphics reset() {
         this.graphics_style = new String[this.graphics_style.length];
         return this;
     }
 
+    /**
+     * Calculates the relative luminance (brightness) of a certain color
+     * @param red The red value of the RGB color
+     * @param green The green value of the RGB color
+     * @param blue The blue value of the RGB color
+     * @return The chainable Graphics object
+     */
     public static float relative_luminance(byte red, byte green, byte blue) {
         return (float) ((0.2126 * Byte.toUnsignedInt(red) + 0.7152 * Byte.toUnsignedInt(green) + 0.0722 * Byte.toUnsignedInt(blue)) / 255);
     }

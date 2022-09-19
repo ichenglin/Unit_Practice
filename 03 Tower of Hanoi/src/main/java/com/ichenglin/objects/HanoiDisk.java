@@ -8,6 +8,10 @@ public class HanoiDisk {
         this.disk_id = disk_id;
     }
 
+    /**
+     * Gets the ID of the disk
+     * @return The ID of the disk
+     */
     public byte get_id() {
         return this.disk_id;
     }

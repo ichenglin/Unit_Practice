@@ -23,6 +23,11 @@ public class HanoiTower {
         this.disk_moves = initial_moves;
     }
 
+    /**
+     * Request a disk movement from a tower to another, throws an exception if unattainable
+     * @param disk_from The original (source) tower ID of the disk
+     * @param disk_to The new (destination) tower ID of the disk
+     */
     public void move_disk(int disk_from, int disk_to) {
         if (!this.valid_tower_id((byte) disk_from)) throw new IllegalArgumentException("tower id out of bounds"); // out of bounds
         if (!this.valid_tower_id((byte) disk_to)) throw new IllegalArgumentException("tower id out of bounds"); // out of bounds
@@ -35,12 +40,22 @@ public class HanoiTower {
         this.disk_moves++;
     }
 
+    /**
+     * Gets the amount of disks in a tower
+     * @param tower_id The ID of the tower
+     * @return The amount of disks in a tower
+     */
     public int get_height(int tower_id) {
         if (!this.valid_tower_id((byte) tower_id)) throw new IllegalArgumentException("tower id out of bounds"); // out of bounds
 
         return this.tower_disks[tower_id].size();
     }
 
+    /**
+     * Gets the disk located at the top of a tower
+     * @param tower_id The ID of the tower
+     * @return The disk located at the top of a tower
+     */
     public HanoiDisk get_top(int tower_id) {
         if (!this.valid_tower_id((byte) tower_id)) throw new IllegalArgumentException("tower id out of bounds"); // out of bounds
         if (this.get_height(tower_id) <= 0) return null; // nothing in tower
@@ -49,6 +64,10 @@ public class HanoiTower {
         return this.tower_disks[tower_id].get(top_disk_index);
     }
 
+    /**
+     * Gets the total amount of disks
+     * @return The total amount of disks
+     */
     public int get_disks() {
         int disks_amount = 0;
         for (int tower_id = 0; tower_id < HanoiConstants.HANOI_TOWER_TOWERS; tower_id++) {
@@ -57,6 +76,10 @@ public class HanoiTower {
         return disks_amount;
     }
 
+    /**
+     * Gets the total amount of successful disk moves
+     * @return The total amount of successful disk moves
+     */
     public int get_moves() {
         return this.disk_moves;
     }
