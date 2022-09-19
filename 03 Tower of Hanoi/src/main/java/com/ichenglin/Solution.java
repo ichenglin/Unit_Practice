@@ -14,14 +14,14 @@ public class Solution {
     // test place, should be removed in production
     public static void main(String[] args) {
         HanoiTower board = new HanoiTower(new byte[][]{{10, 9, 8, 7, 6, 5, 4, 3, 2, 1}, {}, {}}, 0);
-        int solution_moves = (int) (Math.pow(2, board.get_disks()) - 1);
+        /*int solution_moves = (int) (Math.pow(2, board.get_disks()) - 1);
         System.out.println(board);
         for (int move_index = 0; move_index < solution_moves; move_index++) {
             hanoi_tower_solution(board);
             System.out.println(board);
-        }
-        /*System.out.println(board);
-        while (true) hanoi_tower_controller(board);*/
+        }*/
+        System.out.println(board);
+        while (true) hanoi_tower_controller(board);
     }
 
     /**
@@ -79,9 +79,10 @@ public class Solution {
      */
     public static void hanoi_tower_controller(HanoiTower board) {
         // scanner used for input
+        System.out.print("Type in " + Graphics.RED_LIGHT + "[A]" + Graphics.RESET + " or " + Graphics.RED_LIGHT + "[D]" + Graphics.RESET + " to Switch between Towers,\nand " + Graphics.RED_LIGHT + "[Space]" + Graphics.RESET + " to Select for Disk Movement: ");
         Scanner scanner = new Scanner(System.in);
         String scanner_line = scanner.nextLine();
-        char scanner_char = scanner_line.length() == 1 ? scanner_line.charAt(0) : '0';
+        char scanner_char = scanner_line.length() == 1 ? scanner_line.toLowerCase().charAt(0) : '0';
         // input instructions
         switch (scanner_char) {
             case 'a':
@@ -108,14 +109,14 @@ public class Solution {
         // EVERYTHING BELOW WOULD BE OPTIONAL !!!!!
         int disk_width = board.get_disks() * 2 + 1;
         // animation
-        String pointer_string  = "^^^";
+        String pointer_string  = "(X)";
         String selected_string = "SELECTED!";
         String pointer_color   = Graphics.GOLD      + Graphics.BOLD;
         String selected_color  = Graphics.RED_LIGHT + Graphics.BOLD;
         System.out.println(board);
-        System.out.println(" ".repeat((int) Math.floor(disk_width * (Solution.tower_pointer + 0.5) - pointer_string.length() / 2.0)) + pointer_color + pointer_string);
+        System.out.println(" ".repeat((int) Math.floor(disk_width * (Solution.tower_pointer + 0.5) - pointer_string.length() / 2.0)) + pointer_color + pointer_string + Graphics.RESET);
         if (Solution.tower_selected == -1) return; // no tower selected
-        System.out.println(" ".repeat((int) Math.floor(disk_width * (Solution.tower_selected + 0.5) - selected_string.length() / 2.0)) + selected_color + selected_string);
+        System.out.println(" ".repeat((int) Math.floor(disk_width * (Solution.tower_selected + 0.5) - selected_string.length() / 2.0)) + selected_color + selected_string + Graphics.RESET);
     }
 
 

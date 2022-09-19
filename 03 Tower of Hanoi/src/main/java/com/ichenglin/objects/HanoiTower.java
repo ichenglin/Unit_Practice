@@ -107,7 +107,7 @@ public class HanoiTower {
         String disk_label =
                 new Graphics().foreground(disk_luminance_inverted, disk_luminance_inverted, disk_luminance_inverted).background(disk_color[0], disk_color[1], disk_color[2]) +
                 "[" + "-".repeat(disk_id - 1) + disk_id + "-".repeat(disk_id - String.valueOf(disk_id).length()) + "]" +
-                new Graphics().reset();
+                Graphics.RESET;
         return " ".repeat(disk_margin) + disk_label + " ".repeat(disk_margin);
     }
 
@@ -121,7 +121,7 @@ public class HanoiTower {
             }
             if (disk_height > 0) tower_image.append("\n");
         }
-        return new Graphics().reset() + "Tower of Hanoi (Moves: " + this.disk_moves + ")\n" + tower_image;
+        return Graphics.RESET + Graphics.BOLD + "Tower of Hanoi (Moves: " + this.disk_moves + ")\n" + tower_image;
     }
 
 }

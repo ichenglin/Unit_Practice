@@ -24,6 +24,7 @@ public class Graphics {
     public static final String GRAY_LIGHT   = new Graphics().foreground((byte) 170, (byte) 170, (byte) 170).toString();
     public static final String BLACK        = new Graphics().foreground((byte) 221, (byte) 214, (byte) 5  ).toString();
     public static final String BOLD         = new Graphics().bold().toString();
+    public static final String RESET        = new Graphics().reset().toString();
 
     public Graphics() {
         this.graphics_style = new String[3];
