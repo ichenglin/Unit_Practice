@@ -6,6 +6,9 @@ import com.ichenglin.utility.Graphics;
 
 import java.util.ArrayList;
 
+/**
+ * The tower object in Tower of Hanoi
+ */
 public class HanoiTower {
 
     private final ArrayList<HanoiDisk>[] tower_disks = new ArrayList[HanoiConstants.HANOI_TOWER_TOWERS];

@@ -1,5 +1,8 @@
 package com.ichenglin.utility;
 
+/**
+ * Utilities for graphical programming in terminals
+ */
 public class Graphics {
 
     private String[] graphics_style;
@@ -24,10 +27,6 @@ public class Graphics {
 
     public Graphics() {
         this.graphics_style = new String[3];
-    }
-
-    private Graphics(String[] graphics_style) {
-        this.graphics_style = graphics_style;
     }
 
     /**

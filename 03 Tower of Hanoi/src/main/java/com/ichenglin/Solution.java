@@ -14,14 +14,14 @@ public class Solution {
     // test place, should be removed in production
     public static void main(String[] args) {
         HanoiTower board = new HanoiTower(new byte[][]{{10, 9, 8, 7, 6, 5, 4, 3, 2, 1}, {}, {}}, 0);
-        /*int solution_moves = (int) (Math.pow(2, board.get_disks()) - 1);
+        int solution_moves = (int) (Math.pow(2, board.get_disks()) - 1);
         System.out.println(board);
         for (int move_index = 0; move_index < solution_moves; move_index++) {
             hanoi_tower_solution(board);
             System.out.println(board);
-        }*/
-        System.out.println(board);
-        while (true) hanoi_tower_controller(board);
+        }
+        /*System.out.println(board);
+        while (true) hanoi_tower_controller(board);*/
     }
 
     /**
@@ -61,7 +61,7 @@ public class Solution {
     }
 
     /**
-     * Solves the Tower of Hanoi, one disk movement per execution
+     * Solves the Tower of Hanoi, one disk movement per execution (Unit 2 & Unit 3)
      * @param board The Hanoi Tower object
      */
     public static void hanoi_tower_solution(HanoiTower board) {
@@ -74,7 +74,7 @@ public class Solution {
     }
 
     /**
-     * Controls the Tower of Hanoi with Scanner class, one disk movement per execution
+     * Controls the Tower of Hanoi with Scanner class, one disk movement per execution (Unit 2 & Unit 3)
      * @param board The Hanoi Tower object
      */
     public static void hanoi_tower_controller(HanoiTower board) {
@@ -103,16 +103,15 @@ public class Solution {
                 }
                 break;
         }
-        // EVERYTHING BELOW WOULD BE OPTIONAL
-        // EVERYTHING BELOW WOULD BE OPTIONAL
-        // EVERYTHING BELOW WOULD BE OPTIONAL
+        // EVERYTHING BELOW WOULD BE OPTIONAL !!!!!
+        // EVERYTHING BELOW WOULD BE OPTIONAL !!!!!
+        // EVERYTHING BELOW WOULD BE OPTIONAL !!!!!
         int disk_width = board.get_disks() * 2 + 1;
         // animation
         String pointer_string  = "^^^";
         String selected_string = "SELECTED!";
         String pointer_color   = Graphics.GOLD      + Graphics.BOLD;
         String selected_color  = Graphics.RED_LIGHT + Graphics.BOLD;
-        // animation
         System.out.println(board);
         System.out.println(" ".repeat((int) Math.floor(disk_width * (Solution.tower_pointer + 0.5) - pointer_string.length() / 2.0)) + pointer_color + pointer_string);
         if (Solution.tower_selected == -1) return; // no tower selected

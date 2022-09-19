@@ -1,5 +1,8 @@
 package com.ichenglin.utility;
 
+/**
+ * The linear color gradient generator
+ */
 public class Gradient {
 
     byte[][] gradient_anchors;

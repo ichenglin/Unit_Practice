@@ -1,5 +1,8 @@
 package com.ichenglin.objects;
 
+/**
+ * The disk object in Tower of Hanoi
+ */
 public class HanoiDisk {
 
     private final byte disk_id;
