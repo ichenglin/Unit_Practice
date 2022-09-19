@@ -93,9 +93,9 @@ public class HanoiTower {
             for (int tower_id = 0; tower_id < HanoiConstants.HANOI_TOWER_TOWERS; tower_id++) {
                 tower_image.append(this.get_disk_block((byte) tower_id, disk_height));
             }
-            tower_image.append("\n");
+            if (disk_height > 0) tower_image.append("\n");
         }
-        return "Tower of Hanoi (Moves: " + this.disk_moves + ")\n" + tower_image;
+        return new Graphics().reset() + "Tower of Hanoi (Moves: " + this.disk_moves + ")\n" + tower_image;
     }
 
 }
