@@ -3,6 +3,7 @@ package com.ichenglin;
 import com.ichenglin.objects.HanoiDisk;
 import com.ichenglin.objects.HanoiTower;
 import com.ichenglin.objects.HanoiTowerUserControl;
+import com.ichenglin.utility.Graphics;
 
 import java.util.Scanner;
 
@@ -10,7 +11,7 @@ public class Solution {
 
     // test place
     public static void main(String[] args) {
-        HanoiTowerUserControl board = new HanoiTowerUserControl(new byte[][]{{11, 10, 9, 8, 7, 6, 5 , 4 ,3, 2, 1}, {}, {}}, 0);
+        HanoiTowerUserControl board = new HanoiTowerUserControl(new byte[][]{{5 , 4 ,3, 2, 1}, {}, {}}, 0);
         hanoi_tower_controller_loop(board);
     }
 
@@ -50,6 +51,8 @@ public class Solution {
     }
 
     public static void hanoi_tower_controller_loop(HanoiTowerUserControl board){
+        System.out.print("Type in " + Graphics.RED_LIGHT + "[A]" + Graphics.RESET + " or " + Graphics.RED_LIGHT + "[D]" +
+                Graphics.RESET + " to Switch between Towers,\nand " + Graphics.RED_LIGHT + "[Space]" + Graphics.RESET + " to Select for Disk Movement: "+"\n\n");
         while(true){
             System.out.println(board);
             if(board.get_height(2) == board.get_disks()) {
@@ -64,6 +67,7 @@ public class Solution {
 
     // involved: (Unit 2 Objects) (Unit 3 If-Else Booleans) (IDK what unit but: Scanner)
     public static void hanoi_tower_controller(HanoiTowerUserControl board) {
+
         int tower_selected = board.get_selected_tower();
 
         Scanner scanner = new Scanner(System.in);
