@@ -10,7 +10,7 @@ public class Solution {
 
     // test place
     public static void main(String[] args) {
-        HanoiTowerUserControl board = new HanoiTowerUserControl(new byte[][]{{3, 2, 1}, {}, {}}, 0);
+        HanoiTowerUserControl board = new HanoiTowerUserControl(new byte[][]{{11, 10, 9, 8, 7, 6, 5 , 4 ,3, 2, 1}, {}, {}}, 0);
         hanoi_tower_controller_loop(board);
     }
 
@@ -53,7 +53,7 @@ public class Solution {
         while(true){
             System.out.println(board);
             if(board.get_height(2) == board.get_disks()) {
-                board.setSelecting(false);
+                board.set_selected_state(false);
                 System.out.println(board);
                 break;
             }
@@ -64,40 +64,32 @@ public class Solution {
 
     // involved: (Unit 2 Objects) (Unit 3 If-Else Booleans) (IDK what unit but: Scanner)
     public static void hanoi_tower_controller(HanoiTowerUserControl board) {
+        int tower_selected = board.get_selected_tower();
+
         Scanner scanner = new Scanner(System.in);
-        String system_in;
-        system_in = scanner.nextLine();
-        if(system_in.length()>1){
-            system_in.substring(0,1);
-        }
-        if(system_in.equals(" ")){
-            board.setSelecting();
-        }
-        else {
-            int tower_selected = board.getSelectingTower();
-            if (!board.getSelectingState()) {
-                if (system_in.equals("a")  && tower_selected != 0) {
-                    board.select_previous();
-                } else if (system_in.equals("d") && tower_selected != 2) {
-                    board.select_next();
+        String system_in = scanner.nextLine();
+        system_in = system_in.length() > 1 ? system_in.substring(0,1) : system_in;
+
+        switch(system_in){
+            case " " -> {if(board.get_top(board.get_selected_tower()) != null) board.toggle_selected_state();}
+            case "a" -> {
+                if (tower_selected == 0) return;
+                if (board.get_selected_state()) {
+                    if (disk_movable(board, tower_selected, tower_selected - 1)) board.move_disk(tower_selected, tower_selected - 1);
+                    else if (disk_movable(board, 2, 0) && tower_selected == 2) board.move_disk(2, 0);
+                } else board.set_selected_tower(board.get_selected_tower() - 1);
+            }
+            case "d" -> {
+                if(tower_selected == 2) return;
+                if(board.get_selected_state()){
+                    if(disk_movable(board, tower_selected, tower_selected + 1)) board.move_disk(tower_selected, tower_selected + 1);
+                    else if(disk_movable(board, 0,2) && tower_selected == 0) board.move_disk(0,2);
                 }
-            } else {
-                if (system_in.equals("a")) {
-                    if(disk_movable(board, tower_selected, tower_selected - 1) && tower_selected != 0) {
-                        board.move_disk(tower_selected, tower_selected - 1);
-                    }
-                    else if(disk_movable(board, tower_selected, tower_selected - 2) && tower_selected == 2){
-                        board.move_disk(tower_selected, 0);
-                    }
-                } else if (system_in.equals("d") ) {
-                    if(disk_movable(board, tower_selected, tower_selected +1) && tower_selected != 2) {
-                        board.move_disk(tower_selected, tower_selected + 1);
-                    }
-                    else if(disk_movable(board, tower_selected, tower_selected + 2) && tower_selected == 0 ){
-                        board.move_disk(tower_selected, 2);
-                    }
-                }
+                else board.set_selected_tower(board.get_selected_tower() +1);
             }
         }
-    }
+
+    };
+
+
 }
