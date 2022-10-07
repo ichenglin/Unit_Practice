@@ -83,6 +83,14 @@ public class Graphics {
         return (float) ((0.2126 * Byte.toUnsignedInt(red) + 0.7152 * Byte.toUnsignedInt(green) + 0.0722 * Byte.toUnsignedInt(blue)) / 255);
     }
 
+    /**
+     * Flushes the entire terminal
+     */
+    public static void flush() {
+        System.out.println("\033[H\033[2J");
+        System.out.flush();
+    }
+
     @Override
     public String toString() {
         StringBuilder style_string = new StringBuilder();

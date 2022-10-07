@@ -14,6 +14,12 @@ public class HanoiTower {
     private final ArrayList<HanoiDisk>[] tower_disks = new ArrayList[HanoiConstants.HANOI_TOWER_TOWERS];
     private int disk_moves;
 
+    public HanoiTower(byte disks_amount) {
+        for (int tower_id = 0; tower_id < HanoiConstants.HANOI_TOWER_TOWERS; tower_id++) this.tower_disks[tower_id] = new ArrayList<HanoiDisk>();
+        for (byte disk_id = 0; disk_id < Byte.toUnsignedInt(disks_amount); disk_id++) this.tower_disks[0].add(new HanoiDisk((byte) (disks_amount - disk_id)));
+        this.disk_moves = 0;
+    }
+
     public HanoiTower(byte[][] disks_placement, int initial_moves) {
         // double for-loop looks like dogshit, might need to enhance this constructor later on
         for (int tower_id = 0; tower_id < HanoiConstants.HANOI_TOWER_TOWERS; tower_id++) {
