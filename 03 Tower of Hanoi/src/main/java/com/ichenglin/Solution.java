@@ -13,7 +13,8 @@ public class Solution {
 
     // test place, should be removed in production
     public static void main(String[] args) {
-        HanoiTower board = new HanoiTower(new byte[][]{{10, 9, 8, 7, 6, 5, 4, 3, 2, 1}, {}, {}}, 0);
+        //HanoiTower board = new HanoiTower(new byte[][]{{10, 9, 8, 7, 6, 5, 4, 3, 2, 1}, {}, {}}, 0);
+        HanoiTower board = new HanoiTower((byte) 10);
         /*int solution_moves = (int) (Math.pow(2, board.get_disks()) - 1);
         System.out.println(board);
         for (int move_index = 0; move_index < solution_moves; move_index++) {
@@ -35,10 +36,6 @@ public class Solution {
         if (board.get_top(disk_from) == null) return false; // nothing to move
         if (board.get_top(disk_to) != null && board.get_top(disk_from).get_id() > board.get_top(disk_to).get_id()) return false; // invalid move
         return true;
-    }
-
-    public static int disk_movement_cost(HanoiTower board, int disk_from, int disk_to) {
-        return 0;
     }
 
     /**
@@ -113,6 +110,7 @@ public class Solution {
         String selected_string = "SELECTED!";
         String pointer_color   = Graphics.GOLD      + Graphics.BOLD;
         String selected_color  = Graphics.RED_LIGHT + Graphics.BOLD;
+        Graphics.flush();
         System.out.println(board);
         System.out.println(" ".repeat((int) Math.floor(disk_width * (Solution.tower_pointer + 0.5) - pointer_string.length() / 2.0)) + pointer_color + pointer_string + Graphics.RESET);
         if (Solution.tower_selected == -1) return; // no tower selected
