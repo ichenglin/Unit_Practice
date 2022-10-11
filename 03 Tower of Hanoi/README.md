@@ -27,7 +27,10 @@ you should be able to complete this with **just knowledge from the two units**.
 
 ## 🧰 Objects
 
-Here's all the objects you would be using throughout this assignment
+Here's **all the objects** you would be using throughout this assignment,
+you could **view them** 👀 by **clicking** on them.
+
+(Remember to click as *gently* as possible to avoid having them frightened. ❤️)
 
 <details>
 	<summary><b>HanoiTower</b> (Click to Expand)</summary>
@@ -144,7 +147,7 @@ while games that are **played fairly** would be **100% friendly** to everyone, i
 
 As you could see from the **statistics above**, **unfair games** are **extremely harmful**.
 To prevent such thing from happening ever again and ruin our world, we have to **teach everyone** how to **obey rules correctly** in games.
-You are the **chosen one** ~~*to be tortured*~~ so please help us get this resolved ASAP
+You are the **chosen one** ~~*to be tortured*~~ so please help us get this resolved ASAP (as soon as possible)
 by **creating a program** that determines whether peoples are **playing the game correctly**.
 
 > **GOAL:** Determine whether a move between towers is legal, return true for legal movement or false otherwise.
@@ -161,6 +164,27 @@ by **creating a program** that determines whether peoples are **playing the game
 > **TIP:** Check out the definition of the term **`legal move`** mentioned under game rules.
 
 ## 👫 Q2: Perform Legal Move between Towers
+
+*(Note: Incomplete Description)*
+
+Nice! Seems like you had resolved the issue of peoples playing games unfairly, yet it sure isn't good enough for us.
+While you were away, we observed that the world could be even better by simply avoid miscommunications.
+After an in-deep discussion with the professionals in our association,
+we proudly concluded that the best solution will be simplifying our use of language.
+
+> **GOAL:** Perform a **legal move** between the towers with IDs of **`tower_a`** and **`tower_b`**.
+> ```java
+>  /**
+>   * Legally moves a disk between two towers (Unit 2 & Unit 3)
+>   * @param board The Hanoi Tower object
+>   * @param tower_a The first tower, could be either the source or destination of the disk
+>   * @param tower_b The second tower, could be either the source or destination of the disk
+>   */
+>  public static void disk_movement_legal(HanoiTower board, int tower_a, int tower_b) {}
+> ```
+> **TIP:** There's maximum one solution considered as a **legal move**,
+> which is either moving the **smaller disk** above the **greater disk**
+> or transferring the **disk** to another **tower without a disk**.
 
 ## 🦾 Q3: Automate Tower Solution
 
