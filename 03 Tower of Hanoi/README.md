@@ -161,19 +161,24 @@ by **creating a program** that determines whether peoples are **playing the game
 >  */
 > public static boolean disk_movable(HanoiTower board, int disk_from, int disk_to) {}
 > ```
+> | Origin Tower | Destination Tower | Top Disks                | Movable |
+> | :----------: | :---------------: | ------------------------ | :-----: |
+> | 0            | 1                 | [**`1`**, **`2`**, 3]    | ✔️       |
+> | 0            | 1                 | [**`1`**, **`null`**, 3] | ✔️       |
+> | 1            | 0                 | [**`1`**, **`2`**, 3]    | ❌       |
+> | 1            | 0                 | [**`1`**, **`null`**, 3] | ❌       |
+>
 > **TIP:** Check out the definition of the term **`legal move`** mentioned under game rules.
 
 ## 👫 Q2: Perform Legal Move between Towers
 
-*(Note: Incomplete Description)*
-
 Nice! Seems like you had resolved the issue of peoples playing games unfairly, yet it sure isn't good enough for us.
-While you were away, we observed that the world could be even better by simply avoid having miscommunications.
+While you were away, we observed that the **world could be even better** by simply **avoid having miscommunications**.
 After an in-deep discussion with the professionals in our association,
-we proudly concluded that the best solution is to simplify our use of language.
+we proudly concluded that the best solution is to **simplify our use of language**.
 
-Rather then mentioning "move the disk from tower A to tower B",
-we could instead say "A & B" to perform a legal disk move between the towers.
+Rather then mentioning *`"move the disk from tower A to tower B"`*,
+we could instead say *`"A & B"`* to perform a legal disk move between the towers.
 Since you had helped us before we truly believe in you,
 please help us make a program to perform the task.
 
@@ -187,10 +192,38 @@ please help us make a program to perform the task.
 >   */
 >  public static void disk_movement_legal(HanoiTower board, int tower_a, int tower_b) {}
 > ```
-> **TIP:** There's maximum one solution considered as a **legal move**,
+> | Tower A | Tower B | Top Disks (Before)       | Top Disks (After)        |
+> | :-----: | :-----: | ------------------------ | ------------------------ |
+> | 0       | 1       | [**`null`**, **`1`**, 2] | [**`1`**, **`?`**, 2]    |
+> | 1       | 2       | [null, **`1`**, **`2`**] | [null, **`?`**, **`1`**] |
+> | 2       | 0       | [**`null`**, 1, **`2`**] | [**`2`**, 1, **`?`**]    |
+>
+> **TIP:** There's maximum one solution considered as a **`legal move`**,
 > which is either moving the **smaller disk** above the **greater disk**
 > or transferring the **disk** to another **tower without a disk**.
 
 ## 🦾 Q3: Automate Tower Solution
+
+*(Note: Incomplete Description)*
+
+> **GOAL:** Automate the solution for the **Tower of Hanoi**.
+> ```java
+>  /**
+>   * Solves the Tower of Hanoi, one disk movement per execution (Unit 2 & Unit 3)
+>   * @param board The Hanoi Tower object
+>   */
+>  public static void hanoi_tower_solution(HanoiTower board) {}
+> ```
+> | Moves | Task | Top Disks (Before)          | Top Disks (After)        |
+> | :---: | :--: | --------------------------- | ------------------------ |
+> | 0     | 1    | [**`1`**, null, **`null`**] | [**`2`**, null, **`1`**] |
+> | 1     | 2    | [**`2`**, **`null`**, 1]    | [**`3`**, **`2`**, 1]    |
+> | 2     | 3    | [3, **`2`**, **`1`**]       | [3, **`1`**, **`null`**] |
+> | 3     | 1    | [**`3`**, 1, **`null`**]    | [**`4`**, 1, **`3`**]    |
+> | 4     | 2    | [**`4`**, **`1`**, 3]       | [**`1`**, **`2`**, 3]    |
+> | 5     | 3    | [1, **`2`**, **`3`**]       | [1, **`null`**, **`2`**] |
+> 
+> **TIP:** You could keep track with the current **moves of disks** with the
+> **`HanoiTower.get_moves()`** method binded to the **board object**.
 
 ## 🎮 Q4: Player Controller (Open-Ended)
