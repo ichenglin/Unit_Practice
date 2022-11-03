@@ -172,17 +172,17 @@ by **creating a program** that determines whether peoples are **playing the game
 
 ## 👫 Q2: Perform Legal Move between Towers
 
-Nice! Seems like you had resolved the issue of peoples playing games unfairly, yet it sure isn't good enough for us.
-While you were away, we observed that the **world could be even better** by simply **avoid having miscommunications**.
+Nice! 👍 Seems like you had resolved the issue of peoples playing games unfairly, yet it sure isn't good enough for us.
+While you were away, we observed that the **world could be even better** by simply **avoid having miscommunications**. 🤐
 After an in-deep discussion with the professionals in our association,
 we proudly concluded that the best solution is to **simplify our use of language**.
 
-Rather then mentioning *`"move the disk from tower A to tower B"`*,
+Rather then mentioning *`"move the disk from tower A to tower B"`* 🙄,
 we could instead say *`"A & B"`* to perform a legal disk move between the towers.
 Since you had helped us before we truly believe in you,
 please help us make a program to perform the task.
 
-> **GOAL:** Perform a **legal move** between the towers with IDs of **`tower_a`** and **`tower_b`**.
+> **GOAL:** Perform a **legal move** 💱 between the towers with IDs of **`tower_a`** and **`tower_b`**.
 > ```java
 >  /**
 >   * Legally moves a disk between two towers (Unit 2 & Unit 3)
@@ -227,3 +227,5 @@ please help us make a program to perform the task.
 > **`HanoiTower.get_moves()`** method binded to the **board object**.
 
 ## 🎮 Q4: Player Controller (Open-Ended)
+
+![towerofhanoi_openended](https://user-images.githubusercontent.com/41904540/199811719-8a59c291-8202-4b60-a2ba-8af34c406edb.png)
