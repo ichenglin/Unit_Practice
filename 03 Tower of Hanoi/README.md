@@ -172,7 +172,7 @@ by **creating a program** that determines whether peoples are **playing the game
 
 ## 👫 Q2: Perform Legal Move between Towers
 
-Nice! 👍 Seems like you had resolved the issue of peoples playing games unfairly, yet it sure isn't good enough for us.
+Nice! 👍 Seems like you had resolved the issue of people playing games unfairly, yet it sure isn't good enough for us.
 While you were away, we observed that the **world could be even better** by simply **avoid having miscommunications**. 🤐
 After an in-deep discussion with the professionals in our association,
 we proudly concluded that the best solution is to **simplify our use of language**.
@@ -204,7 +204,15 @@ please help us make a program to perform the task.
 
 ## 🦾 Q3: Automate Tower Solution
 
-*(Note: Incomplete Description)*
+Dam, your work never disappoint us! The system you made for us is by far the best we'd seen. 👍
+This shows your **outstanding talent and passion** in solving problems for us, so we would like to once again **ask for your help**.
+*(u have no right to reject tho, poor u 😳)*
+
+Remember the **first time** we reached out to you for the **`legal movement system`**? 💭
+People who used to **cheat** in games are now **complaining the game is unsolvable**, but it clearly was!
+We explained to them how it was **possible**, but none of them listen to us; 😔
+therefore, we hope to **stop the argument** by making a system to **solve the puzzle**.
+We're looking forward to smack the solution on their face and **prove they're wrong**! 😎
 
 > **GOAL:** Automate the solution for the **Tower of Hanoi**.
 > ```java
@@ -223,7 +231,8 @@ please help us make a program to perform the task.
 > | 4     | 2    | [**`4`**, **`1`**, 3]       | [**`1`**, **`2`**, 3]    |
 > | 5     | 3    | [1, **`2`**, **`3`**]       | [1, **`null`**, **`2`**] |
 > 
-> **TIP:** You could keep track with the current **moves of disks** with the
+> **TIP:** The solution is composite of repeating **three identical movements** between towers. *(refer to the table above)*
+> You could also keep track with the current **moves of disks** with the
 > **`HanoiTower.get_moves()`** method binded to the **board object**.
 
 ## 🎮 Q4: Player Controller (Open-Ended)
